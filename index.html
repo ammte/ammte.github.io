@@ -1,837 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Carta a los reyes magos</title>
-  <link rel="shortcut icon" href="https://images.emojiterra.com/twitter/v13.1/512px/1f384.png">
-  <script></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  <script></script>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      padding: 0;
-      margin: 0;
-      font-family: poppins;
-      text-transform: uppercase;
-    }
-
-    /* customizable snowflake styling */
-    .snowflake {
-      color: #fff;
-      font-size: 1em;
-      font-family: Arial;
-      text-shadow: 0 0 1px #000;
-    }
-
-    @-webkit-keyframes snowflakes-fall {
-      0% {
-        top: -10%
-      }
-
-      100% {
-        top: 100%
-      }
-    }
-
-    @-webkit-keyframes snowflakes-shake {
-      0% {
-        -webkit-transform: translateX(0px);
-        transform: translateX(0px)
-      }
-
-      50% {
-        -webkit-transform: translateX(80px);
-        transform: translateX(80px)
-      }
-
-      100% {
-        -webkit-transform: translateX(0px);
-        transform: translateX(0px)
-      }
-    }
-
-    @keyframes snowflakes-fall {
-      0% {
-        top: -10%
-      }
-
-      100% {
-        top: 100%
-      }
-    }
-
-    @keyframes snowflakes-shake {
-      0% {
-        transform: translateX(0px)
-      }
-
-      50% {
-        transform: translateX(80px)
-      }
-
-      100% {
-        transform: translateX(0px)
-      }
-    }
-
-    .snowflake {
-      position: fixed;
-      top: -10%;
-      z-index: 9999;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      cursor: default;
-      -webkit-animation-name: snowflakes-fall, snowflakes-shake;
-      -webkit-animation-duration: 10s, 3s;
-      -webkit-animation-timing-function: linear, ease-in-out;
-      -webkit-animation-iteration-count: infinite, infinite;
-      -webkit-animation-play-state: running, running;
-      animation-name: snowflakes-fall, snowflakes-shake;
-      animation-duration: 10s, 3s;
-      animation-timing-function: linear, ease-in-out;
-      animation-iteration-count: infinite, infinite;
-      animation-play-state: running, running
-    }
-
-    .snowflake:nth-of-type(0) {
-      left: 1%;
-      -webkit-animation-delay: 0s, 0s;
-      animation-delay: 0s, 0s
-    }
-
-    .snowflake:nth-of-type(1) {
-      left: 10%;
-      -webkit-animation-delay: 1s, 1s;
-      animation-delay: 1s, 1s
-    }
-
-    .snowflake:nth-of-type(2) {
-      left: 20%;
-      -webkit-animation-delay: 6s, .5s;
-      animation-delay: 6s, .5s
-    }
-
-    .snowflake:nth-of-type(3) {
-      left: 30%;
-      -webkit-animation-delay: 4s, 2s;
-      animation-delay: 4s, 2s
-    }
-
-    .snowflake:nth-of-type(4) {
-      left: 40%;
-      -webkit-animation-delay: 2s, 2s;
-      animation-delay: 2s, 2s
-    }
-
-    .snowflake:nth-of-type(5) {
-      left: 50%;
-      -webkit-animation-delay: 8s, 3s;
-      animation-delay: 8s, 3s
-    }
-
-    .snowflake:nth-of-type(6) {
-      left: 60%;
-      -webkit-animation-delay: 6s, 2s;
-      animation-delay: 6s, 2s
-    }
-
-    .snowflake:nth-of-type(7) {
-      left: 70%;
-      -webkit-animation-delay: 2.5s, 1s;
-      animation-delay: 2.5s, 1s
-    }
-
-    .snowflake:nth-of-type(8) {
-      left: 80%;
-      -webkit-animation-delay: 1s, 0s;
-      animation-delay: 1s, 0s
-    }
-
-    .snowflake:nth-of-type(9) {
-      left: 90%;
-      -webkit-animation-delay: 3s, 1.5s;
-      animation-delay: 3s, 1.5s
-    }
-
-    /* Demo Purpose Only*/
-    .demo {
-      font-family: 'Raleway', sans-serif;
-      color: #fff;
-      display: block;
-      margin: 0 auto;
-      padding: 15px 0;
-      text-align: center;
-    }
-
-    .demo a {
-      font-family: 'Raleway', sans-serif;
-      color: #000;
-    }
-
-    .wrapper {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      letter-spacing: 4px;
-      overflow: hidden;
-      text-align: center;
-      clip: rect(0, auto, auto, 0);
-    }
-
-    .wrapper h1 {
-      font-size: 80px;
-      font-weight: bold;
-      color: #fff;
-      margin: 0;
-      text-shadow: 0 2px 2px #000;
-    }
-
-    .wrapper p {
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .text-wrapper {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      overflow: hidden;
-    }
-
-    .banner {
-      background-image: url(https://fotografias.lasexta.com/clipping/cmsimages01/2021/01/05/DAE96D97-478A-4926-9ED6-CEC0E49AE108/default.jpg?crop=1300,731,x0,y12&width=1900&height=1069&optimize=low);
-      -webkit-background-size: cover;
-      background-size: cover;
-      background-position: center center;
-    }
-
-    .banner p {
-      color: #fff;
-      font-size: 30px;
-      margin: 0;
-    }
-
-    .wrapper:nth-child(1) {
-      background-color: #fff;
-      top: 0;
-      z-index: 1;
-    }
-
-    .wrapper:nth-child(1) .text-wrapper {
-      transform: translate(-50%, -50%);
-    }
-
-    .wrapper:nth-child(2) {
-      background-color: #d2004f;
-      top: 100vh;
-      z-index: 2;
-    }
-
-    .wrapper:nth-child(2) .text-wrapper {
-      transform: translate(-50%, -50%);
-    }
-
-    .wrapper:nth-child(3) {
-      background-color: #009c4d;
-      top: 200vh;
-      z-index: 3;
-    }
-
-    .verde {
-      background-color: #009c4d;
-
-    }
-
-    .negro {
-      background-color: #000;
-
-    }
-
-    .amarillo {
-      background-color: #ba7600;
-
-    }
-
-    .wrapper:nth-child(3) .text-wrapper {
-      transform: translate(-50%, -50%);
-    }
-
-    .wrapper:nth-child(4) {
-      background-color: #ba7600;
-      top: 300vh;
-      z-index: 4;
-    }
-
-    .wrapper:nth-child(4) .text-wrapper {
-      transform: translate(-50%, -50%);
-    }
-
-    .wrapper:nth-child(5) {
-      background-color: #000;
-      top: 400vh;
-      z-index: 5;
-    }
-
-    .wrapper:nth-child(5) .text-wrapper {
-      transform: translate(-50%, -50%);
-    }
-
-    .mediana {
-      width: 481px;
-      height: 361px;
-    }
-
-    input {
-      width: 100%;
-      height: 50px;
-      padding: 10px;
-    }
-
-    a {
-      text-decoration: none;
-      background: #D2004F;
-      padding: 15px 50px;
-      display: inherit;
-      color: #fff;
-    }
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Flores Amarillas &lt;3</title>
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@1&display=swap" rel="stylesheet">
+    <!--
+        Codigo By: MartL7
+    -->
 </head>
-
 <body>
-
-  <div class="wrapper banner">
-    <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-    </div>
-    <div class="text-wrapper">
-      <h1>Carta a los reyes magos</h1>
-      <p></p>
-    </div>
-  </div>
-  <div class="wrapper">
-    <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-    </div>
-    <div class="text-wrapper">
-      <h1>Queridos reyes magos</h1>
-      <p>Este año me he portado muy bien, por lo que me gustaria pediros algunas cosas para navidad</p>
-    </div>
-
-
-  </div>
-
-  <div class="wrapper">
-    <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-    </div>
-    <div class="text-wrapper">
-      <h1>Cosas para la moto</h1>
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
-            aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner" style="max-width:852px; max-height:639px !important;">
-          <div class="carousel-item active">
-            <a class="verde"
-              href="https://www.quadlockcase.eu/collections/iphone-13/products/motorcycle-scooter-mount-kit-all-iphone-devices?variant=40102173868114"
-              target="_blank"> <img
-                src="https://cdn.sanity.io/images/3azemr64/production/d3621da26a5fc3edf99920b80a14e9f0deba44ca-1024x768.jpg?w=860&h=645&crop=center&fit=crop"
-                class="d-block w-100" alt="..">
-            </a>
-
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Un soporte para el movil en la moto</h5>
-              <p>Me gustaria pedir un soporte para la moto (precio medio 60€)</p>
-
-            </div>
-          </div>
-          <div class="carousel-item">
-            <a class="verde" href="https://sw-motech.com/es/productos/equipaje/alforjas/BLAZE/4052572199565.htm"
-              target="_blank">
-              <img
-                src="https://sw-motech.com/cosmoshop/default/pix/a/z/BC.HTA.01.740.31500/bc_hta_xx_740_3xx00_8_xl.jpg"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Alforjas para la moto</h5>
-              <p>Alforjas laterales para la moto y un porta cascos</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <a class="verde"
-              href="https://www.amazon.es/Bostar-Portamatr%C3%ADculas-Universal-Matr%C3%ADcula-Ajustable/dp/B093W4JZ72/ref=sr_1_6?keywords=portamatriculas+moto&qid=1670410283&sr=8-6"
-              target="_blank">
-              <img src="https://www.unobike.com/content/productos/pt408b-portamatriculas-rizoma-para-mo.jpg"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color:black;">Porta matriculas para la moto</h5>
-              <p style="color:black;">Un porta matriculas corto para la moto</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <a class="verde" href="https://emobex.com/caballetes-traseros/universal-honda-cb650r-neo" target="_blank">
-              <img
-                src="https://www.jomafa.com/90-large_default/caballete-de-moto-2-en-1-delantero-y-trasero-adaptadores.jpg"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color:black;">Caballete para la moto</h5>
-              <p style="color:black;">Un caballete para ajustar la cadena de la moto</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-
-  </div>
-  <div class="wrapper">
-    <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-    </div>
-    <div class="text-wrapper">
-      <h1>Ropa</h1>
-      <div id="carouselExampleCaptions132" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="3"
-            aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="4"
-            aria-label="Slide 5"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="5"
-            aria-label="Slide 6"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="6"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="7"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="8"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="9"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions132" data-bs-slide-to="10"
-            aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner" style="max-width:852px; max-height:639px !important;">
-          <div class="carousel-item active">
-            <h5>Ropa transpirable de deporte</h5>
-            <a class="amarillo"
-              href="https://www.decathlon.es/es/p/camiseta-fitness-manga-corta-transpirable-cuello-redondo-hombre-domyos/_/R-p-302873?mc=8586456&c=BLANCO"
-              target="_blank"> <img
-                src="https://contents.mediadecathlon.com/p1851222/k$cdb373f7ec13ffd4ae52880816a16c44/sq/camiseta-fitness-manga-corta-transpirable-cuello-redondo-hombre-domyos-negro.jpg?format=auto&f=800x0"
-                class="d-block w-100" alt="..">
-            </a>
-
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ropa transpirable de deporte</h5>
-              <p>Ropa que transpire para cuando entrene</p>
-
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <h5>Tallister</h5>
-
-            <a class="amarillo" href="https://talister.fr/products/dog?variant=43661337133290" target="_blank"> <img
-                src="https://cdn.shopify.com/s/files/1/2331/4463/products/MOCKUP_PRODUIT_1000X1000_NOIR09_HOODIE_BACK_NOIR_PRODUIT_1000_d78f3b9e-2adf-4edd-b467-ab4c119050d8.png?v=1666365685&width=713"
-                class="d-block w-100" alt="..">
-
-            </a>
-
-            <div class="carousel-caption d-none d-md-block">
-
-
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <h5>DollyNoire</h5>
-            <a class="amarillo"
-              href="https://www.dollynoire.com/es/collections/00sweats/products/dlynr-pokemon-pokedex-hoodie?variant=42030080295111"
-              target="_blank"> <img
-                src="https://cdn.shopify.com/s/files/1/0191/0966/products/DLYNR_Dolly-Noire_Recap_2022_DLYNR-Pokemon-Pokedex-Hoodie_sw307-sa-01_shooting2.jpg?v=1663167635&width=1200"
-                class="d-block w-100" alt="..">
-            </a>
-
-
-          </div>
-          <div class="carousel-item ">
-            <h5>Pull And bear</h5>
-            <a class="amarillo"
-              href="https://www.pullandbear.com/es/sudadera-one-piece-capucha-l08593523?cS=800&pelement=554836595"
-              target="_blank"> <img
-                src="https://static.pullandbear.net/2/photos//2023/V/0/2/p/8593/523/800/8593523800_2_6_8.jpg?t=1664795762792&imwidth=563"
-                class="d-block w-100" alt="..">
-            </a>
-
-
-          </div>
-          <div class="carousel-item ">
-            <h5>Jacker</h5>
-            <a class="amarillo" href="https://jacker.fr/collections/sweats/products/nightmare-hoodie-black"
-              target="_blank"> <img
-                src="https://cdn.shopify.com/s/files/1/0054/4430/4970/products/MODERN-NIGHTMARE-HOODIE-BLACK-BACK_400x.jpg?v=1663335702"
-                class="d-block w-100" alt="..">
-            </a>
-
-
-          </div>
-          <div class="carousel-item ">
-            <h5>KCloth</h5>
-            <a class="amarillo" href="https://kclot.com/products/dark-chain-cargo-pants" target="_blank"> <img
-                src="https://cdn.shopify.com/s/files/1/0535/9527/5424/products/4_07e3c36b-02c1-4c2b-b542-89f0ba7dca17_720x.jpg?v=1640316797"
-                class="d-block w-100" alt="..">
-            </a>
-
-
-          </div>
-          <div class="carousel-item ">
-            <h5>Urban Oufitters</h5>
-            <a class="amarillo"
-              href="https://www.urbanoutfitters.com/es-es/shop/bdg-washed-black-cargo-jeans?category=mens-jeans&color=001&type=REGULAR&quantity=1"
-              target="_blank"> <img
-                src="https://imageseu.urbndata.com/is/image/UrbanOutfittersEU/0222593370543_001_b?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=960"
-                class="d-block w-100" alt="..">
-            </a>
-
-
-          </div>
-          <div class="carousel-item ">
-            <h5>Blacktailor</h5>
-            <a class="amarillo" href="https://www.blacktailor.store/products/blacktailor_c1_cargo_black"
-              target="_blank"> <img
-                src="https://cdn.shopify.com/s/files/1/0012/2981/5865/products/C1Black_5_400x.jpg?v=1612975514"
-                class="d-block w-100" alt="..">
-            </a>
-
-
-          </div>
-          <div class="carousel-item ">
-            <h5>Bershka</h5>
-            <a class="amarillo" href="https://www.bershka.com/es/sudadera-capucha-mickey-c0p123203337.html?colorId=800"
-              target="_blank"> <img
-                src="https://static.bershka.net/4/photos2/2022/I/0/2/p/7633/130/800/7633130800_2_13_3.jpg?t=1667817964762"
-                class="d-block w-100" alt="..">
-            </a>
-
-
-          </div>
-
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions132"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions132"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-  <div class="wrapper">
-    <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-      <div class="snowflake">
-        ❅
-      </div>
-      <div class="snowflake">
-        ❆
-      </div>
-      <div class="snowflake">
-        ❄
-      </div>
-    </div>
-    <div class="text-wrapper">
-      <h1>Otros</h1>
-      <div id="carouselExampleCaptions12" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions12" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions12" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions12" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions12" data-bs-slide-to="3"
-            aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions12" data-bs-slide-to="4"
-            aria-label="Slide 5"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions12" data-bs-slide-to="5"
-            aria-label="Slide 6"></button>
-        </div>
-        <div class="carousel-inner" style="max-width:852px; max-height:639px !important;">
-          <div class="carousel-item active">
-            <a class="negro" href="https://www.sanitas.es/sanitas/seguros/es/particulares/servicios_salud/vista/cirugia-laser-ocular/index.html" target="_blank">
-              <img
-                src="https://media.glamour.mx/photos/61df5dc29ceaf8a2f28b7580/16:9/w_2991,h_1682,c_limit/misterio-de-los-ojos-verdes.jpg"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color:black;">Ojos nuevos</h5>
+    <!DOCTYPE html>
+    <html lang="en-ES">
+        <head>
+            <meta charset="UTF-8">
+            <title>heart</title>
+            <link rel="stylesheet" type="text/css" href="style.css">
+            <link rel="icon" type="image/png" href="../icono/icono_ney.png">
+        </head>
+      <body>
+         
+                <div class="Contenedor-Binicio">
+                    <button class="Button" id="BVer"> PRESIONAME</button>
+                </div>
+            
+                <div class="Con-Emergente">
+                    <div id="resultado" class="cua">
+                        <p id="res">
+                            Hola, antes de iniciar, solo quiero recordarte que eres 
+                            muy especial para mí y gracias por todo. &lt;3
+                        </p>    
+                        <button id="BotonCerrar" class="Button">Cerrar</button>
+                    </div>
+                </div>
+            
+                <div class="Con-2">
+                    <h1 id="Titulo"> Elige una Opcion </h1>
+                    <div class="Con">
+                        <button class="Button" id="B1"> 1 Flor </button>
+                        <button class="Button" id="B12"> Quiero un ramo!!!</button>
+                     
+                    </div>
+                </div>
+            
+                <main class="Contenedor">
+                    <canvas id="Flor" class="Flor" width="800" height="600"></canvas>
+                   
+                    <div class="Texto">
+                        <h2 id="Text">Para la mejor novia del mundo.</h2>
+                    </div>
+            
+                </main>
+            
+                <script src="Js/app.js"></script>
+                <script src="Js/Dis.js"></script>
               
             </div>
-          </div>
-          <div class="carousel-item ">
-            <a class="negro" href="https://www.primor.eu/halloween/58173-halloween-man-x-edt.html?search_query=halloween&results=1000" target="_blank">
-              <img
-                src="https://cdns3-3.primor.eu/103587-thickbox/halloween-man-x-edt.jpg"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color:black;">Colonia de chico</h5>
-             
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <a class="negro" href="https://www.pccomponentes.com/newskill-kitsune-zephyr-series-silla-gaming-acabada-en-tela-negro-azul" target="_blank">
-              <img
-                src="https://thumb.pccomponentes.com/w-530-530/articles/34/346579/1502-newskill-kitsune-zephyr-series-silla-gaming-acabada-en-tela-negro-azul.jpg"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color:red;">Silla de tela</h5>
-             
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <a class="negro" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.es%2FTiras-Metros-Completo-eficiencia-energ%25C3%25A9tica%2Fdp%2FB07DG2CY4C&psig=AOvVaw2Cq1eRMALtbERbWO64V4bW&ust=1670513267340000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKiVgoLp5_sCFQAAAAAdAAAAABAE" target="_blank">
-              <img
-                src="https://m.media-amazon.com/images/I/81J76E6nWcL._AC_SX522_.jpg"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 >Leds como los de alba</h5>
-             
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <a class="negro" href="https://www.vans.es/shop/es/vans-es/zapatos-old-skool/zapatillas-skate-old-skool-vn0a5fcbb9m" target="_blank">
-              <img
-                src="https://images.vans.com/is/image/VansEU/VN0A5FCBB9M-HERO?wid=1800&hei=1800"
-                class="d-block w-100" alt="..">
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color:black;">Zapatillas</h5>
-             
-            </div>
-          </div>
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions12"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions12"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-
-    </div>
-
+            <div class="container">
+                <div class="col">
+                    <div class="heart heart1">
+                        <div class="circle"></div>
+                        <div class="halfMoon"></div>
+                    </div>	
+                </div>
+                <div class="col">
+                    <div class="heart heart2">
+                        <div class="circle"></div>
+                        <div class="halfMoon"></div>
+                    </div>	
+                </div>
+                <div class="col">
+                    <div class="heart heart3">
+                        <div class="circle"></div>
+                        <div class="halfMoon"></div>
+                    </div>	
+                </div>
+                <div class="col">
+                    <div class="heart heart4">
+                        <div class="circle"></div>
+                        <div class="halfMoon"></div>
+                    </div>	
+                </div>
+                <div class="col">
+                    <div class="heart heart5">
+                        <div class="circle"></div>
+                        <div class="halfMoon"></div>
+                    </div>	
+                </div>
+            <!--script src="codigo.js"></script-->
+      </body>
+    </html>
+  
 </body>
-
 </html>
