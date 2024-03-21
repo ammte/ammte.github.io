@@ -19,6 +19,34 @@ img{
 }
 
 /*****************************************************************************/
+/* Ajustes para hacer el canvas ocupar toda la pantalla */
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Ajustes para hacer que los elementos de la página se adapten dinámicamente */
+.Contenedor-Binicio,
+.Con-Emergente,
+.Con-2,
+.Contenedor {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.Con-Emergente {
+  display: none;
+}
+
+.Con {
+  display: flex;
+  justify-content: center;
+}
+
+.Button {
+  margin: 10px;
+}
 
 .container{
   position: absolute;
@@ -260,7 +288,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     margin: 0;
 }
 
@@ -348,9 +376,24 @@ canvas {
       }
 }
 
-@media (max-width: 468px) {
-    body {
-        background: linear-gradient(100deg, blue, purple, pink);
+/* Media queries para hacer la página responsiva */
+@media screen and (max-width: 768px) {
+  .col {
+      flex: 0 0 33.33%;
+      max-width: 33.33%;
+  }
+}
 
-    }
+@media screen and (max-width: 576px) {
+  .col {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .col {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
 }
